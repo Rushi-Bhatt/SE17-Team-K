@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'application#hello'
+  root 'home_page#home'
+  get '/home', to: 'home_page#home'
+
+  get '/about', to: 'home_page#about'
+  get '/signup', to: 'users#new'
 end
