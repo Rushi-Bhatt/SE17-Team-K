@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221013019) do
+ActiveRecord::Schema.define(version: 20170221015839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,66 @@ ActiveRecord::Schema.define(version: 20170221013019) do
     t.string   "level"
     t.string   "dept_id"
     t.string   "Integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "section_id"
+    t.integer  "user_id"
+    t.integer  "num_of_exam"
+    t.integer  "num_of_project"
+    t.integer  "num_of_assignment"
+    t.string   "tool_and_lang"
+    t.integer  "fav_factor"
+    t.integer  "prof_rating_id"
+    t.integer  "job"
+    t.integer  "workload"
+    t.string   "grade"
+    t.string   "relate_course"
+    t.integer  "quality_of_lecture"
+    t.integer  "category"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "prof_ratings", force: :cascade do |t|
+    t.integer  "feedback_id"
+    t.integer  "prof_id"
+    t.integer  "fluency"
+    t.integer  "course_material"
+    t.integer  "knowledge"
+    t.integer  "helpful"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "professors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "section_id"
+    t.integer  "user_id"
+    t.text     "review"
+    t.integer  "like"
+    t.integer  "dislike"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "course_id"
+    t.integer  "prof_id"
+    t.string   "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,12 +1,12 @@
 class CreateProfRatings < ActiveRecord::Migration[5.0]
   def change
     create_table :prof_ratings do |t|
-      t.Integer :feedback_id
-      t.Integer :prof_id
-      t.Integer :fluency
-      t.Integer :course_material
-      t.Integer :knowledge
-      t.Integer :helpful
+      t.integer :feedback_id
+      t.integer :prof_id
+      t.integer :fluency
+      t.integer :course_material
+      t.integer :knowledge
+      t.integer :helpful
 
       t.timestamps
     end
