@@ -6,8 +6,7 @@ class CreateProfRatings < ActiveRecord::Migration[5.0]
       t.integer :fluency
       t.integer :course_material
       t.integer :knowledge
-      t.integer :helpful
-
+      t.integer :doubt_solving
       t.timestamps
     end
   end

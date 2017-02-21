@@ -5,15 +5,14 @@ class CreateFeedbacks < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.integer :num_of_exam
       t.integer :num_of_project
-      t.integer :num_of_project
       t.integer :num_of_assignment
       t.string :tool_and_lang
       t.integer :fav_factor
       t.integer :prof_rating_id
-      t.integer :job
+      t.integer :job_relevance
       t.integer :workload
       t.string :grade
-      t.string :relate_course
+      t.string :related_course
       t.integer :quality_of_lecture
       t.integer :category
 

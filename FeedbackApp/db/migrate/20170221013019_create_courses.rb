@@ -4,8 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :level
       t.string :dept_id
-      t.string :Integer
-
+      t.string :course_id
       t.timestamps
     end
   end
