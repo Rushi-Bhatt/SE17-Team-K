@@ -1,0 +1,2 @@
+class ProfRating < ApplicationRecord
+end
