@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  belongs_to :user
+  default_scope -> { order(created_at: :desc) }
   validates :section_id, :presence => {:message => "Please enter section Id"}
   validates :user_id, :presence => {:message => "Please enter user Id"}
   validates :review, :presence => {:message => "Please enter the review"}
