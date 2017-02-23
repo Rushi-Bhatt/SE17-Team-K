@@ -1,0 +1,20 @@
+<% provide(:title, "give_feedback") %>
+<h1>Give feedback</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%=form_for :section do |f| %>
+        <%=f.label :course_id%>
+        <%=f.text_field :course_id, class: 'form-control'%>
+
+        <%=f.label :prof_id%>
+        <%=f.text_field :prof_id, class: 'form-control'%>
+
+        <%=f.label :semester%>
+        <%=f.text_field :semester , class: 'form-control'%>
+
+        <%=f.submit "get_feedback_form", class: "btn btn-primary"%>
+    <%end%>
+  </div>
+</div>
+
+<p>CSC510 project</p>
