@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  number: MyString
   title: MyString
   level: MyString
-  dept_id: MyString
-  Integer: MyString
+  department: one
+  professor: one
 
 two:
+  number: MyString
   title: MyString
   level: MyString
-  dept_id: MyString
-  Integer: MyString
+  department: two
+  professor: two
