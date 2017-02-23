@@ -1,0 +1,76 @@
+<% provide(:title, "give_feedback") %>
+<h1 xmlns="http://www.w3.org/1999/html">Enter your feedback</h1>
+<div class="row">
+  <div >
+    <%=form_for :feedback do |f| %>
+        <%=label_tag(:fav_factor,"1) What do you like the best about the course?")%></br>
+        <div class="form-group">
+        <%= label_tag(:Instructor,"Instructor")%>
+        <%= radio_button_tag(:fav_factor,'Instructor')%>
+        <%= label_tag(:Project_assignment,"Project/Assignments") %>
+        <%= radio_button_tag(:fav_factor,'Project_assignments') %>
+        <%= label_tag(:Course_material,"Course Material") %>
+        <%= radio_button_tag(:fav_factor,'Course_material') %>
+        <%= label_tag(:Grading,"Grading") %>
+        <%= radio_button_tag(:fav_factor,'Grading') %>
+        </div>
+
+        <%=label_tag(:workload,"2) What is the approximate workload in hours/week?")%></br>
+        <div class="form-group">
+          <%= label_tag(:four_five,"4-5")%>
+          <%= radio_button_tag(:workload,'4-5')%>
+          <%= label_tag(:seven_eight,"7-8")%>
+          <%= radio_button_tag(:workload,'7-8')%>
+          <%= label_tag(:ten_twelve,"10-12")%>
+          <%= radio_button_tag(:workload,'10-12')%>
+        </div>
+
+        <%=label_tag(:grade,"3) What grade did you get in the course?")%></br>
+        <div class="form-group">
+          <%= label_tag(:A_plus,"A+")%>
+          <%= radio_button_tag(:grade,'A+')%>
+          <%= label_tag(:A,"A")%>
+          <%= radio_button_tag(:grade,'A')%>
+          <%= label_tag(:A_minus,"A-")%>
+          <%= radio_button_tag(:grade,'A-')%>
+          <%= label_tag(:B_plus,"B+")%>
+          <%= radio_button_tag(:grade,'B+')%>
+          <%= label_tag(:B,"B")%>
+          <%= radio_button_tag(:grade,'B')%>
+          <%= label_tag(:B_minus,"B-")%> <%= radio_button_tag(:grade,'B-')%>
+
+          <%= label_tag(:C_plus,"C+")%>
+          <%= radio_button_tag(:grade,'C+')%>
+          <%= label_tag(:C,"C")%>
+          <%= radio_button_tag(:grade,'C')%>
+          <%= label_tag(:C_minus,"C-")%>
+          <%= radio_button_tag(:grade,'C-')%>
+        </div>
+
+        <%=label_tag(:num_of_project,"4) How many projects are there in the course?")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:num_of_project,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:num_of_project,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:num_of_project,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:num_of_project,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:num_of_project,'5')%>
+          <%= label_tag(:six,"6 or more")%>
+          <%= radio_button_tag(:num_of_project,'6 or more')%>
+        </div>
+
+
+
+
+
+
+
+        <%=f.submit "Create", class: "btn btn-primary"%>
+    <%end%>
+  </div>
+</div>
+<p>CSC510 project</p>
