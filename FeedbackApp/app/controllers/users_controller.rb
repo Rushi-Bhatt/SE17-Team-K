@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  # before_action :logged_in_user
   def show
     @user=User.find(params[:id])
-    # @reviews = @user.reviews.paginate(page: params[:page])  #split results by pages
+
   end
   def new
     @user=User.new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success]="Welcome to our system"
-      redirect_to @user
+      redirect_to show_course_path
     else
       render 'new'
     end

@@ -1,0 +1,39 @@
+<% provide(:title, current_user.name) %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:course, url: search_course_path ) do |f| %>
+
+        <%= f.label :number %><br>
+        <%= f.select(:number, options_for_select([['',''], ['CSC510', 'CSC510'], ['CSC505', 'CSC505']])) %>
+        <br><br>
+        <%= f.label :professor_id %><br>
+        <%= f.select(:professor_id, options_for_select([['',''], ['Timm', '1'], ['Heber', '2']]))%>
+        <br><br>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>
+
+<% if logged_in? %>
+    <br><br>
+    <table>
+      <thead>
+      <tr>
+        <th>Course number</th>
+        <th>Course title</th>
+        <th>Reviews</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @courses.each do |course| %>
+          <tr>
+            <td><% course.number %></td>
+            <td><% course.title %></td>
+            <td><%= link_to "Review", show_review_path(:id => course.id) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>

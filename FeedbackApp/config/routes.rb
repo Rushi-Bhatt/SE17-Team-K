@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root 'home_page#home'
-  get '/home', to: 'home_page#home'
 
+  get '/home', to: 'home_page#home'
   get '/about', to: 'home_page#about'
 
   get '/signup', to: 'users#new'
@@ -21,8 +21,13 @@ Rails.application.routes.draw do
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
   get  '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form'
 
+  get '/show_course', to: 'courses#show_course'
+  post '/search_course', to: 'courses#search_course'
 
+  get '/show_review', to: 'courses#show_review'
 
 
   resources :users
+  resources :courses
+  resources :reviews, only: [:create, :destroy]
 end
