@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
-    @reviews = @user.reviews.paginate(page: params[:page])  #split results by pages
+    # @reviews = @user.reviews.paginate(page: params[:page])  #split results by pages
   end
   def new
     @user=User.new
@@ -10,8 +10,9 @@ class UsersController < ApplicationController
   def create
      @user=User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success]="Welcome to our system"
-      redirect_to root_path
+      redirect_to @user
     else
       render 'new'
     end
