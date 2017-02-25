@@ -63,10 +63,96 @@
           <%= radio_button_tag(:num_of_project,'6 or more')%>
         </div>
 
+        <%=label_tag(:num_of_assignment,"5) How many assignments are there in the course?")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:num_of_assignment,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:num_of_assignment,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:num_of_assignment,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:num_of_assignment,'4')%>
+          <%= label_tag(:five,"5 or more")%>
+          <%= radio_button_tag(:num_of_assignment,'5 or more')%>
+        </div>
 
+        <%=label_tag(:quality_of_lecture,"7) How do you rate the quality of lectures?")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:quality_of_lecture,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:quality_of_lecture,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:quality_of_lecture,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:quality_of_lecture,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:quality_of_lecture,'5')%>
+        </div>
 
+        <%=label_tag(:tool_and_lang,"8) Which Tools/Languages did you use?")%></br>
+        <%= select_tag :tool_and_lang, options_for_select([ "C", "C++","Java","Python","Scala","Other" ], "C"), multiple: true%>
 
+        <%=label_tag(:category,"9) How do you categorize this course?")%></br>
+        <%= select_tag :category, options_for_select([ "System", "Design","Networks","Software engineering","Data Science","Other" ], "C")%>
 
+        <%=label_tag(:prof_ratings,"10) How do you rate the professor?")%></br>
+        <%=label_tag(:fluency,"i) Language and Fluency:")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:fluency,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:fluency,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:fluency,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:fluency,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:fluency,'5')%>
+        </div>
+
+        <%=label_tag(:course_material,"ii) Course Material:")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:course_material,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:course_material,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:course_material,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:course_material,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:course_material,'5')%>
+        </div>
+
+        <%=label_tag(:knowledge,"iii) Course knowledge:")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:knowledge,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:knowledge,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:knowledge,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:knowledge,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:knowledge,'5')%>
+        </div>
+
+        <%=label_tag(:helpful,"iv) Helpfulness:")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:helpful,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:helpful,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:helpful,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:helpful,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:helpful,'5')%>
+        </div>
 
 
         <%=f.submit "Create", class: "btn btn-primary"%>

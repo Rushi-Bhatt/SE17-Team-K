@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170223061026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
 
   create_table "courses", force: :cascade do |t|
     t.string   "number"
@@ -42,10 +43,10 @@ ActiveRecord::Schema.define(version: 20170223061026) do
     t.string   "tool_and_lang"
     t.integer  "fav_factor"
     t.integer  "prof_rating_id"
-    t.integer  "job_relevance"
+    t.integer  "job"
     t.integer  "workload"
     t.string   "grade"
-    t.string   "related_course"
+    t.string   "relate_course"
     t.integer  "quality_of_lecture"
     t.integer  "category"
     t.datetime "created_at",         null: false
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170223061026) do
     t.integer  "fluency"
     t.integer  "course_material"
     t.integer  "knowledge"
-    t.integer  "doubt_solving"
+    t.integer  "helpful"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -77,6 +78,14 @@ ActiveRecord::Schema.define(version: 20170223061026) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_reviews_on_course_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "course_id"
+    t.integer  "prof_id"
+    t.string   "semester"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

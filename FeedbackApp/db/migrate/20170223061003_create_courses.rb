@@ -6,7 +6,6 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.string :level
       t.references :department, foreign_key: true
       t.references :professor, foreign_key: true
-
       t.timestamps
     end
   end
