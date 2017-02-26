@@ -154,8 +154,22 @@
           <%= radio_button_tag(:helpful,'5')%>
         </div>
 
+        <%=label_tag(:job,"7) How do you rate the job relevance of the course?")%></br>
+        <div class="form-group">
+          <%= label_tag(:one,"1")%>
+          <%= radio_button_tag(:job,'1')%>
+          <%= label_tag(:two,"2")%>
+          <%= radio_button_tag(:job,'2')%>
+          <%= label_tag(:three,"3")%>
+          <%= radio_button_tag(:job,'3')%>
+          <%= label_tag(:four,"4")%>
+          <%= radio_button_tag(:job,'4')%>
+          <%= label_tag(:five,"5")%>
+          <%= radio_button_tag(:job,'5')%>
+        </div>
 
-        <%=f.submit "Create", class: "btn btn-primary"%>
+
+        <%=f.submit "post_feedback_form", class: "btn btn-primary"%>
     <%end%>
   </div>
 </div>

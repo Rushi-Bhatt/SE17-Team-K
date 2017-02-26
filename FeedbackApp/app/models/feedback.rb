@@ -1,5 +1,6 @@
 class Feedback < ApplicationRecord
-  validates :section_id, :presence => {:message => "Please enter section Id"}
+  validates :course_number, :presence => {:message => "Please enter course number"}
+  validates :professor_id, :presence => {:message => "Please enter Professor Id"}
   validates :user_id, :presence => {:message => "Please enter user Id"}
   validates :num_of_exam, :presence => {:message => "Please enter the no. of exams"}
   validates :num_of_project, :presence => {:message => "Please enter the no of projects"}

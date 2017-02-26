@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170223061026) do
   enable_extension "adminpack"
 
   create_table "courses", force: :cascade do |t|
-    t.string   "number"
+    t.string   "course_number"
     t.string   "title"
     t.string   "level"
     t.integer  "department_id"
@@ -35,7 +35,8 @@ ActiveRecord::Schema.define(version: 20170223061026) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.integer  "section_id"
+    t.integer  "course_number"
+    t.integer  "professor_id"
     t.integer  "user_id"
     t.integer  "num_of_exam"
     t.integer  "num_of_project"
@@ -43,10 +44,10 @@ ActiveRecord::Schema.define(version: 20170223061026) do
     t.string   "tool_and_lang"
     t.integer  "fav_factor"
     t.integer  "prof_rating_id"
-    t.integer  "job"
+    t.integer  "job_relevance"
     t.integer  "workload"
     t.string   "grade"
-    t.string   "relate_course"
+    t.string   "related_course"
     t.integer  "quality_of_lecture"
     t.integer  "category"
     t.datetime "created_at",         null: false
@@ -54,12 +55,11 @@ ActiveRecord::Schema.define(version: 20170223061026) do
   end
 
   create_table "prof_ratings", force: :cascade do |t|
-    t.integer  "feedback_id"
-    t.integer  "prof_id"
+    t.integer  "professor_id"
     t.integer  "fluency"
     t.integer  "course_material"
     t.integer  "knowledge"
-    t.integer  "helpful"
+    t.integer  "doubt_solving"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -74,18 +74,12 @@ ActiveRecord::Schema.define(version: 20170223061026) do
     t.integer  "course_id"
     t.integer  "user_id"
     t.text     "content"
+    t.integer  "likes"
+    t.integer  "dislikes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_reviews_on_course_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
-  end
-
-  create_table "sections", force: :cascade do |t|
-    t.string   "course_id"
-    t.integer  "prof_id"
-    t.string   "semester"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

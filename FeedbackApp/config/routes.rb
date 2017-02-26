@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/course_eval/getfeedback', to:'course_eval#get_feedback'
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
   get  '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form'
+  post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
+  post '/course_eval/givefeedback/id', to:'course_eval#post_feedback_form'
 
   get '/show_course', to: 'courses#show_course'
   post '/search_course', to: 'courses#search_course'
