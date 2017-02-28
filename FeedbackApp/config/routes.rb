@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'home_page#home'
-
   get '/home', to: 'home_page#home'
   get '/about', to: 'home_page#about'
 
@@ -22,7 +21,6 @@ Rails.application.routes.draw do
   get  '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form'
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
   post '/course_eval/givefeedback/id', to:'course_eval#post_feedback_form'
-
   get '/show_course', to: 'courses#show_course'
   post '/search_course', to: 'courses#search_course'
 
