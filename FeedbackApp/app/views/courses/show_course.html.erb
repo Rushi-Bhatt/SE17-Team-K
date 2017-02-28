@@ -3,11 +3,11 @@
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(:course, url: search_course_path ) do |f| %>
 
-          <%= f.label :number %><br>
-          <%= f.select(:number, options_for_select([['',''], ['CSC510', 'CSC510'], ['CSC505', 'CSC505']])) %>
+          <%= f.label :course_number %><br>
+          <%= f.select(:course_number, options_for_select([['All',''], ['CSC510', 'CSC510'], ['CSC505', 'CSC505']])) %>
           <br><br>
           <%= f.label :professor_id %><br>
-          <%= f.select(:professor_id, options_for_select([['',''], ['Timm', '1'], ['Heber', '2']]))%>
+          <%= f.select(:professor_id, options_for_select([['All',''], ['Timm', '1'], ['Heber', '2']]))%>
           <br><br>
           <%= f.submit "Search", class: "btn btn-primary" %>
       <% end %>
