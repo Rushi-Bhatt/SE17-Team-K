@@ -1,4 +1,4 @@
-<% provide(:title, @course.name) %>
+<% provide(:title, @course.title) %>
 <% if logged_in? %>
     <div class="row">
       <aside class="col-md-4">
@@ -6,13 +6,28 @@
           <%= render 'shared/user_info' %>
         </section>
         <section class="review_form">
-          <%= render 'shared/review_form' %>
+          <%= form_for(@review) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+              <div class="field">
+                <%= f.text_area :content, placeholder: "Compose new review..." %>
+                <%= hidden_field_tag 'course_id', @course.id %>
+                <%= f.hidden_field :user_id, :value => @current_user.id %>
+                <%= f.hidden_field :likes, :value => 0%>
+                <%= f.hidden_field :dislikes, :value => 0 %>
+              </div>
+              <%= f.submit "Post", class: "btn btn-primary" %>
+          <% end %>
         </section>
       </aside>
-    </div>
 
     <div class="col-md-8">
-      <h3>Review Feed</h3>
-      <%= render 'shared/feed' %>
+      <h3>Reviews</h3>
+      <% if @review_items.any? %>
+          <ol class="reviews">
+            <%= render @review_items %>
+          </ol>
+          <%= will_paginate @review_items %>
+      <% end %>
+    </div>
     </div>
 <% end %>

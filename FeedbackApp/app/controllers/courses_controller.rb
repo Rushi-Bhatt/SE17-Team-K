@@ -1,10 +1,9 @@
 class CoursesController < ApplicationController
-  def show
-    @course = Course.find(params[:id])
+  def new
   end
 
   def search_course
-    number = course_params[:number]
+    number = course_params[:course_number]
     prof = course_params[:professor_id]
 
     if number.size==0&&prof.size==0
@@ -22,21 +21,24 @@ class CoursesController < ApplicationController
 
   end
 
+
+
   def show_review
+    # if @current_course.nil?
+    #   get_course params[:id]
+    # end
     @course = Course.find(params[:id])
     if logged_in?
       @review = @course.reviews.build
-      @feed_items = @course.feed.paginate(page: params[:page])
+      @review_items = @course.feed.paginate(page: params[:page])
     end
   end
 
-  def feed
-    Review.where("course_id = ?", id)
-  end
+
 end
 
   private
 
   def course_params
-    params.require(:course).permit(:number, :professor_id)
+    params.require(:course).permit(:course_number, :professor_id)
   end

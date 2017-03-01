@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'feedbacks/save'
 
   root 'home_page#home'
-
   get '/home', to: 'home_page#home'
   get '/about', to: 'home_page#about'
 
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
   get  '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form'
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
+
   post '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form_course'
 
   get 'prof_ratings/show_feedback_form_professor/id', to:'prof_ratings#show_feedback_form_professor'

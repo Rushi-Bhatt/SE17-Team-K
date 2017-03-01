@@ -1,3 +1,31 @@
 <% provide(:title, "suggestion") %>
-<h1>Suggestions for you</h1>
-<p>CSC510 project</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :courses do |f| %>
+      <p> Programming Language/Tools/framework</p>
+        <%= f.select(:programming_language, options_for_select([['No selection',''],['JAVA','JAVA'], ['C++','C++'], ['C','C'],['Python','Python'],['Git','Git'],['Ruby on Rails','Ruby on Rails'],['Language Independent','Language Independent']])) %>
+      <p> Course category</p>
+      <%= f.select(:course_category, options_for_select([['No selection',''],['System','System'], ['Software','Software'], ['Network','Network'],['Data Science','Data Science'],['UI','UI'],['Graphics','Graphics']])) %>
+      <p>Number of Project</p>
+      <%= f.select(:no_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5'],['6','6']])) %>
+      <p>Number of Exams</p>
+      <%= f.select(:no_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4']])) %>
+      <p>Average Grade</p>
+      <%= f.select(:no_of_project, options_for_select([['No selection',''],['A+','A+'], ['A','A'], ['A-','A-']])) %>
+      <p>Workload in hours per week</p>
+      <%= f.select(:no_of_project, options_for_select([['No selection',''],['7-8','7-8'], ['4-5','4-5'], ['10-12','10-12']])) %>
+      <p>hwo useful for finding jobs</p>
+      <%= f.select(:no_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5']])) %>
+        <br />
+        <br />
+        <%=link_to "Search", root_path%>
+      <br />
+        <br />
+        <br />
+        <br />
+
+    <% end %>
+  </div>
+  </div>
+
+</div>
