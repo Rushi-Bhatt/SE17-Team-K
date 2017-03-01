@@ -1,4 +1,4 @@
-class CreateProfRatings < ActiveRecord::Migration[5.0]
+class CreateProfRating < ActiveRecord::Migration[5.0]
   def change
     create_table :prof_ratings do |t|
       t.integer :professor_id
