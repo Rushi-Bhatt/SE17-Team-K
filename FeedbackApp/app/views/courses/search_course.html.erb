@@ -4,10 +4,10 @@
     <%= form_for(:course, url: search_course_path, ) do |f| %>
 
         <%= f.label :course_number %><br>
-        <%= f.select(:course_number, options_for_select([['All',''], ['CSC510', 'CSC510'], ['CSC505', 'CSC505']]) ) %>
+        <%= f.select(:course_number, options_for_select(Course.select(:course_number, :id).map{|c| [ c.course_number, c.id ]})) %>
         <br><br>
         <%= f.label :professor_id %><br>
-        <%= f.select(:professor_id, options_for_select([['All',''], ['Timm', '1'], ['Heber', '2']]))%>
+        <%= f.select(:professor_id, options_for_select(Professor.select(:name, :id).map{|c| [ c.name, c.id ]})) %>
         <br><br>
         <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
@@ -29,9 +29,8 @@
       <tbody>
       <% @courses.each do |course| %>
           <tr>
-            <td><% link_to course.course_number, course %></td>
-            <td><% link_to course.course_number, course %></td>
-
+            <td><% course.course_number %></td>
+            <td><% course.title %></td>
             <td><%= link_to "Review", show_review_path(:id => course.id) %></td>
           </tr>
       <% end %>

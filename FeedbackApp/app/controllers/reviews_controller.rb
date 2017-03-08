@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:success] = "Review created!"
-      redirect_to show_review_path
+      redirect_to show_review_path(:id => params[:course_id])
     else
       @review_items = []
       render 'home_page/home'
