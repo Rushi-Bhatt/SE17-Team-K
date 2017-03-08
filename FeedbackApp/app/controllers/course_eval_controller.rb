@@ -11,7 +11,6 @@ class CourseEvalController < ApplicationController
     redirect_to(:controller => 'prof_ratings', :action => 'new',:id=>params[:course][:professor_id])
   end
 
-
   def course_params
     params.require(:course).permit(:number,:professor_id)
   end

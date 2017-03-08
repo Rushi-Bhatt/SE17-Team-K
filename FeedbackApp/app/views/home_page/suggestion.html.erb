@@ -1,24 +1,41 @@
 <% provide(:title, "suggestion") %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for :courses do |f| %>
+    <%= form_for :feedback do |f| %>
       <p> Programming Language/Tools/framework</p>
-        <%= f.select(:programming_language, options_for_select([['No selection',''],['JAVA','JAVA'], ['C++','C++'], ['C','C'],['Python','Python'],['Git','Git'],['Ruby on Rails','Ruby on Rails'],['Language Independent','Language Independent']])) %>
-      <p> Course category</p>
-      <%= f.select(:course_category, options_for_select([['No selection',''],['System','System'], ['Software','Software'], ['Network','Network'],['Data Science','Data Science'],['UI','UI'],['Graphics','Graphics']])) %>
-      <p>Number of Project</p>
-      <%= f.select(:no_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5'],['6','6']])) %>
-      <p>Number of Exams</p>
-      <%= f.select(:no_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4']])) %>
-      <p>Average Grade</p>
-      <%= f.select(:no_of_project, options_for_select([['No selection',''],['A+','A+'], ['A','A'], ['A-','A-']])) %>
-      <p>Workload in hours per week</p>
-      <%= f.select(:no_of_project, options_for_select([['No selection',''],['7-8','7-8'], ['4-5','4-5'], ['10-12','10-12']])) %>
-      <p>hwo useful for finding jobs</p>
-      <%= f.select(:no_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5']])) %>
+        <%=f.label :num_of_exam%><br>
+        <%= f.select(:num_of_exam, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4']])) %>
         <br />
         <br />
-        <%=link_to "Search", root_path%>
+        <%=f.label :num_of_project%><br>
+        <%= f.select(:num_of_project, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5'],['6','6']])) %>
+        <br />
+        <br />
+        <%=f.label :num_of_assignment%><br>
+        <%= f.select(:num_of_assignment, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5'],['6','6']])) %>
+        <br />
+        <br />
+        <%=f.label :tool_and_lang%><br>
+        <%= f.select(:tool_and_lang, options_for_select([['No selection',''],['JAVA','JAVA'], ['C++','C++'], ['C','C'],['Python','Python'],['Git','Git'],['Ruby on Rails','Ruby on Rails'],['Language Independent','Language Independent']])) %>
+        <br />
+        <br />
+        <%=f.label :job_relevance%><br>
+        <%= f.select(:job_relevance, options_for_select([['No selection',''],['1','1'], ['2','2'], ['3','3'],['4','4'],['5','5']])) %>
+        <br />
+        <br />
+        <%=f.label :workload%><br>
+        <%= f.select(:workload, options_for_select([['No selection',''],['7-8','7-8'], ['4-5','4-5'], ['10-12','10-12']])) %>
+        <br />
+        <br />
+        <%=f.label :grade%><br>
+        <%= f.select(:grade, options_for_select([['No selection',''],['A+','A+'], ['A','A'], ['A-','A-']])) %>
+        <br />
+        <br />
+        <%=f.label :category%><br>
+      <%= f.select(:category, options_for_select([['No selection',''],['System','System'], ['Software','Software'], ['Network','Network'],['Data Science','Data Science'],['UI','UI'],['Graphics','Graphics']])) %>
+        <br />
+        <br />
+        <%=link_to "Search", proper_course_path%>
       <br />
         <br />
         <br />
