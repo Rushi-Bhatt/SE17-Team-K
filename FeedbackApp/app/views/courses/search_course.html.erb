@@ -11,29 +11,29 @@
         <br><br>
         <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
+
+    <% if logged_in? and @courses.ids.present?%>
+        <br><br>
+        <table>
+          <thead>
+          <tr>
+            <th style="padding-right: 100px">Course number   </th>
+            <th style="padding-right: 100px">Course title    </th>
+            <th style="padding-right: 100px">Reviews</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @courses.each do |course| %>
+              <tr>
+                <td><%= course.course_number %></td>
+                <td><%= course.title %></td>
+                <td><%= link_to "Review", show_review_path(:id => course.id) %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
   </div>
 
 </div>
-
-<% if logged_in? %>
-    <br><br>
-    <table>
-      <thead>
-      <tr>
-        <th>Course number</th>
-        <th>Course title</th>
-        <th>Reviews</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @courses.each do |course| %>
-          <tr>
-            <td><% course.course_number %></td>
-            <td><% course.title %></td>
-            <td><%= link_to "Review", show_review_path(:id => course.id) %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-<% end %>
