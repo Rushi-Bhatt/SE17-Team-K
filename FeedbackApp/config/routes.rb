@@ -42,4 +42,5 @@ Rails.application.routes.draw do
   resources :users
   resources :courses
   resources :reviews, only: [:create, :destroy]
+  resources :feedbacks
 end
