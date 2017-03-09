@@ -2,7 +2,7 @@
 <h1 xmlns="http://www.w3.org/1999/html">Enter your feedback for professor</h1>
 <div class="row">
   <div >
-    <%=form_for :prof_rating do |f| %>
+    <%=form_for @prof_rating do |f| %>
         <%=label_tag(:prof_ratings," How do you rate the professor?")%></br>
         <%=label_tag(:fluency,"i) Language and Fluency:")%></br>
         <div class="form-group">
@@ -61,7 +61,7 @@
         </div>
 
 
-        <%=f.submit "show_feedback_form_course", class: "btn btn-primary"%>
+        <%=f.submit "create", class: "btn btn-primary"%>
     <%end%>
   </div>
 </div>
