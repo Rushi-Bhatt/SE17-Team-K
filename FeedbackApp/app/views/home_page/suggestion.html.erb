@@ -1,10 +1,9 @@
 <% provide(:title, "suggestion") %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for :feedback do |f| %>
-      <p> Programming Language/Tools/framework</p>
+    <%= form_for(:feedback, url: proper_course_path) do |f| %>
         <%=f.label :num_of_exam %><br>
-        <%= f.select(:num_of_exam, options_for_select([['No selection',''],['1',1], ['2',2], ['3',3],['4',4]])) %>
+        <%= f.select(:num_of_exam, options_for_select([['No selection',''],['1','1'], ['2',2], ['3',3],['4',4]])) %>
         <br />
         <br />
         <%=f.label :num_of_project %><br>
@@ -27,7 +26,7 @@
       <%= f.select(:category, options_for_select([['No selection',],['System',1], ['Software',2], ['Network',3],['Data Science',4],['UI',5],['Graphics',6]])) %>
         <br />
         <br />
-        <%=link_to "Search", proper_course_path%>
+        <%= f.submit "Search", class: "btn btn-primary" %>
       <br />
         <br />
         <br />

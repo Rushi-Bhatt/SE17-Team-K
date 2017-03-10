@@ -17,10 +17,7 @@ class FeedbacksController < ApplicationController
   end
 
   def proper_course
-    @feedbacks = Feedback.find_by(:num_of_exam => params[:feedback][:num_of_exam])
-    if @feedbacks != nil
-      redirect_to show_suggestion_path(feedbacks: @feedbacks)
-    end
+    @fb = Feedback.where(num_of_exam: params[:feedback][:num_of_exam])
     end
 end
 
