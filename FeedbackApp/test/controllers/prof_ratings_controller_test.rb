@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ProfRatingsControllerTest < ActionDispatch::IntegrationTest
   test "should get new,save" do
-    get prof_ratings_new,save_url
+    get new_prof_rating_path
     assert_response :success
   end
 

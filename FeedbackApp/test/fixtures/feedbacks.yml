@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  section_id: 
+  course_number:
   user_id: 
   num_of_exam: 
   num_of_project: 
@@ -10,15 +10,15 @@ one:
   tool_and_lang: MyString
   fav_factor: 
   prof_rating_id: 
-  job: 
+  job_relevance:
   workload: 
   grade: MyString
-  relate_course: MyString
+  related_course: MyString
   quality_of_lecture: 
   category: 
 
 two:
-  section_id: 
+  course_number:
   user_id: 
   num_of_exam: 
   num_of_project: 
@@ -27,9 +27,9 @@ two:
   tool_and_lang: MyString
   fav_factor: 
   prof_rating_id: 
-  job: 
+  job_relevance:
   workload: 
   grade: MyString
-  relate_course: MyString
+  related_course: MyString
   quality_of_lecture: 
   category: 
