@@ -1,0 +1,47 @@
+<% provide(:title, "get_feedback_result") %>
+<h1 xmlns="http://www.w3.org/1999/html">Below is the feedback for your selection</h1>
+<div class="row">
+  <div >
+    <%=form_for :feedback do |f| %>
+        <%=label_tag(:fav_factor,"1) Favourite Factor about the course")%></br>
+        <%=label_tag(@fav_factor)%></br>
+
+
+        <%=label_tag(:workload,"2)Approximate workload in hours/week")%></br>
+        <%=label_tag(@workload)%></br>
+
+        <%=label_tag(:grade,"3) Grade in the course")%></br>
+        <%=label_tag(@grade)%></br>
+
+        <%=label_tag(:num_of_project,"4)Projects in the course")%></br>
+        <%=label_tag(@num_of_project)%></br>
+
+        <%=label_tag(:@num_of_assignment,"5)Assignments in the course")%></br>
+        <%=label_tag(@num_of_assignment)%></br>
+
+        <%=label_tag(:@num_of_exam,"6)Exams in the course")%></br>
+        <%=label_tag(@num_of_exam)%></br>
+
+        <%=label_tag(:quality_of_lecture,"7)The quality of lectures")%></br>
+        <%=label_tag(@quality_of_lecture)%></br>
+
+        <%=label_tag(:tool_and_lang,"8) Tools/Languages used in the course")%></br>
+        <%=label_tag(@tool_and_lang)%></br>
+
+        <%=label_tag(:category,"9)How do you categorize this course")%></br>
+        <%=label_tag(@category)%></br>
+
+        <%=label_tag(:job_relevance,"10)Job relevance of the course")%></br>
+        <%=label_tag(@job_relevance)%></br>
+
+        <%=label_tag(:prof_rating_id,"11)Professor rating of the course")%></br>
+        <%=label_tag(@prof_rating_id)%></br>
+
+        <%=label_tag(:related_course,"12)Related coursework")%></br>
+        <%=label_tag(@related_course)%></br>
+
+
+  <%end%>
+  </div>
+</div>
+<p>CSC510 project</p>

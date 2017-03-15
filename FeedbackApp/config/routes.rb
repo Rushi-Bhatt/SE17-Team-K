@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
   get  '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form'
   post  '/course_eval/givefeedback', to:'course_eval#get_feedback_form'
-
+  post  '/course_eval/getfeedback', to:'course_eval#get_feedback_result'
   post '/course_eval/givefeedback/id', to:'course_eval#show_feedback_form_course'
 
   get 'prof_ratings/show_feedback_form_professor/id', to:'prof_ratings#show_feedback_form_professor'
@@ -42,4 +42,5 @@ Rails.application.routes.draw do
   resources :users
   resources :courses
   resources :reviews, only: [:create, :destroy]
+  resources :feedbacks
 end

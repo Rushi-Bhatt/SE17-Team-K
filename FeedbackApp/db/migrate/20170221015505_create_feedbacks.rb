@@ -1,7 +1,7 @@
 class CreateFeedbacks < ActiveRecord::Migration[5.0]
   def change
     create_table :feedbacks do |t|
-      t.integer :course_number
+      t.string :course_number
       t.integer :professor_id
       t.integer :user_id
       t.integer :num_of_exam
