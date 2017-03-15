@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  course_number: MyString
-  title: MyString
-  level: MyString
-  department: one
-  professor: one
+  course_number: 510
+  title: SE
+  level: Graduate
+  department: CS
+  professor: Timm
 
 two:
   course_number: MyString

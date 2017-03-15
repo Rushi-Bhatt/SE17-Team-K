@@ -1,6 +1,4 @@
 class CoursesController < ApplicationController
-  def new
-  end
 
   def search_course
     number = course_params[:course_number]
