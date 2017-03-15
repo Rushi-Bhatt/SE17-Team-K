@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  number: MyString
+  course_number: MyString
   title: MyString
   level: MyString
   department: one
   professor: one
 
 two:
-  number: MyString
+  course_number: MyString
   title: MyString
   level: MyString
   department: two

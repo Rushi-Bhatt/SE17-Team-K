@@ -9,11 +9,11 @@ class CoursesController < ApplicationController
     if number.size==0&&prof.size==0
       @courses = Course.all
     elsif number.size!=0&&prof.size==0
-      @courses =Course.where(number: course_params[:number])
+      @courses =Course.where(id: course_params[:course_number])
     elsif number.size==0&&prof.size!=0
       @courses =Course.where(professor_id: course_params[:professor_id])
     else
-      @courses =Course.where(number: course_params[:number], professor_id: course_params[:professor_id])
+      @courses =Course.where(id: course_params[:course_number], professor_id: course_params[:professor_id])
     end
   end
 
@@ -24,9 +24,6 @@ class CoursesController < ApplicationController
 
 
   def show_review
-    # if @current_course.nil?
-    #   get_course params[:id]
-    # end
     @course = Course.find(params[:id])
     if logged_in?
       @review = @course.reviews.build

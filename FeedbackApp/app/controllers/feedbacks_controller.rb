@@ -33,4 +33,9 @@ class FeedbacksController < ApplicationController
   def feedback_params
     params.permit(:id, :user_id, :course_number,:professor_id, :num_of_exam, :num_of_project,:num_of_assignment,:fav_factor,:tool_and_lang,:prof_rating_id,:job_relevance,:workload,:grade,:related_course,:quality_of_lecture,:category)
   end
+
+  def proper_course
+    @fb = Feedback.where(num_of_exam: params[:feedback][:num_of_exam])
+    end
 end
+

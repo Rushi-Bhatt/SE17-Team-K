@@ -1,0 +1,9 @@
+<% provide(:title, "show_suggestion") %>
+<div class="row">
+  <% @fb.each do |f| %>
+      <%= f.course_number %>
+      <br />
+        <br />
+      <% end %>
+    <%=link_to "Return", root_path%>
+</div>

@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  feedback_id: 
-  prof_id: 
+  professor_id:
   fluency: 
   course_material: 
   knowledge: 
-  helpful: 
+  doubt_solving:
 
 two:
-  feedback_id: 
-  prof_id: 
+  professor_id:
   fluency: 
   course_material: 
   knowledge: 
-  helpful: 
+  doubt_solving:

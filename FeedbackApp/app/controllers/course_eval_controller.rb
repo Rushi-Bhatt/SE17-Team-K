@@ -57,27 +57,12 @@ class CourseEvalController < ApplicationController
     logger.info @tool_and_lang
     logger.info @related_course
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     end
   def get_feedback_form
     @course_id=Course.find_by(:course_number=>params[:course][:course_number], :professor_id=> params[:course][:professor_id]).id
 
     redirect_to(:controller => 'prof_ratings', :action => 'new', :prof_id=>params[:course][:professor_id],:course_number=>params[:course][:course_number])
   end
-
 
   def course_params
     params.require(:course).permit(:number,:professor_id)
