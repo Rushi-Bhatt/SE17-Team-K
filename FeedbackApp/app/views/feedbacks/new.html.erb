@@ -3,26 +3,27 @@
 <div class="row">
   <div >
     <%=form_for @feedback do |f| %>
+        <%= label_tag(:two,@prof_rating)%>
         <%=label_tag(:fav_factor,"1) What do you like the best about the course?")%></br>
         <div class="form-group">
           <%= label_tag(:Instructor,"Instructor")%>
-          <%= radio_button_tag(:fav_factor,'Instructor')%>
+          <%= radio_button_tag(:fav_factor,'1')%>
           <%= label_tag(:Project_assignment,"Project/Assignments") %>
-          <%= radio_button_tag(:fav_factor,'Project_assignments') %>
+          <%= radio_button_tag(:fav_factor,'2') %>
           <%= label_tag(:Course_material,"Course Material") %>
-          <%= radio_button_tag(:fav_factor,'Course_material') %>
+          <%= radio_button_tag(:fav_factor,'3') %>
           <%= label_tag(:Grading,"Grading") %>
-          <%= radio_button_tag(:fav_factor,'Grading') %>
+          <%= radio_button_tag(:fav_factor,'4') %>
         </div>
 
         <%=label_tag(:workload,"2) What is the approximate workload in hours/week?")%></br>
         <div class="form-group">
           <%= label_tag(:four_five,"4-5")%>
-          <%= radio_button_tag(:workload,'4-5')%>
+          <%= radio_button_tag(:workload,'1')%>
           <%= label_tag(:seven_eight,"7-8")%>
-          <%= radio_button_tag(:workload,'7-8')%>
+          <%= radio_button_tag(:workload,'2')%>
           <%= label_tag(:ten_twelve,"10-12")%>
-          <%= radio_button_tag(:workload,'10-12')%>
+          <%= radio_button_tag(:workload,'3')%>
         </div>
 
         <%=label_tag(:grade,"3) What grade did you get in the course?")%></br>
@@ -60,7 +61,7 @@
           <%= label_tag(:five,"5")%>
           <%= radio_button_tag(:num_of_project,'5')%>
           <%= label_tag(:six,"6 or more")%>
-          <%= radio_button_tag(:num_of_project,'6 or more')%>
+          <%= radio_button_tag(:num_of_project,'6')%>
         </div>
 
         <%=label_tag(:num_of_assignment,"5) How many assignments are there in the course?")%></br>
@@ -74,7 +75,7 @@
           <%= label_tag(:four,"4")%>
           <%= radio_button_tag(:num_of_assignment,'4')%>
           <%= label_tag(:five,"5 or more")%>
-          <%= radio_button_tag(:num_of_assignment,'5 or more')%>
+          <%= radio_button_tag(:num_of_assignment,'5')%>
         </div>
 
         <%=label_tag(:quality_of_lecture,"7) How do you rate the quality of lectures?")%></br>
@@ -95,21 +96,21 @@
         <%= select_tag :tool_and_lang, options_for_select([ "C", "C++","Java","Python","Scala","Other" ], "C"), multiple: true%>
 
         <%=label_tag(:category,"9) How do you categorize this course?")%></br>
-        <%= select_tag :category, options_for_select([ "System", "Design","Networks","Software engineering","Data Science","Other" ], "C")%>
+        <%= select_tag :category, options_for_select([[ "System","1"], ["Design","2"],["Networks","3"],["Software engineering","4"],["Data Science","5"],["Other","0"]], "C")%>
 
 
         <%=label_tag(:job_relevance,"7) How do you rate the job relevance of the course?")%></br>
         <div class="form-group">
           <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:job,'1')%>
+          <%= radio_button_tag(:job_relevance,'1')%>
           <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:job,'2')%>
+          <%= radio_button_tag(:job_relevance,'2')%>
           <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:job,'3')%>
+          <%= radio_button_tag(:job_relevance,'3')%>
           <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:job,'4')%>
+          <%= radio_button_tag(:job_relevance,'4')%>
           <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:job,'5')%>
+          <%= radio_button_tag(:job_relevance,'5')%>
         </div>
 
 
