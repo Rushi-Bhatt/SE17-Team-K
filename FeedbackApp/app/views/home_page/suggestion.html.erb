@@ -26,10 +26,6 @@
       <%= f.select(:category, options_for_select([['No selection',0],['System',1], ['Software',2], ['Network',3],['Data Science',4],['UI',5],['Graphics',6]])) %>
         <br />
         <br />
-        <%=f.label :tool_and_lang %><br>
-        <%= select_tag(:tool_and_lang, options_for_select([['No selection','0'],['JAVA','1'], ['PYTHON','2'], ['RUBY ON RAILS','3'],['C++','4'],['C','5'],['OTHER','6']],"No selection"), multiple: true) %>
-        <br />
-        <br />
         <%= f.submit "Search", class: "btn btn-primary" %>
       <br />
         <br />

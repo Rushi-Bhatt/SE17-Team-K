@@ -31,11 +31,7 @@ class FeedbacksController < ApplicationController
   end
 
   def feedback_params
-<<<<<<< HEAD
-    params.permit(:id, :user_id, :num_of_exam, :num_of_project,:num_of_assignment,:fav_factor,:section_id,:job,:workload,:grade,:relate_course,:quality_of_lecture,:category, :tool_and_lang)
-=======
-    params.permit(:id, :user_id, :course_number,:professor_id, :num_of_exam, :num_of_project,:num_of_assignment,:fav_factor,:tool_and_lang,:prof_rating_id,:job_relevance,:workload,:grade,:related_course,:quality_of_lecture,:category)
->>>>>>> eff78bfe8216928653547c0905d73089fea2d8d5
+    params.permit(:id, :user_id, :num_of_exam, :num_of_project,:num_of_assignment,:fav_factor,:section_id,:job,:workload,:grade,:relate_course,:quality_of_lecture,:category)
   end
 
   def proper_course
@@ -71,22 +67,11 @@ class FeedbacksController < ApplicationController
     end
     cate = params[:feedback][:category]
     if cate.to_i == 0
-      @fb6 = @fb5.all
+      @fb = @fb5.all
     else
-      @fb6 = @fb5. where(category: params[:feedback][:category])
+      @fb = @fb5. where(category: params[:feedback][:category])
     end
-    tools = params[:tool_and_lang]
-    str = ""
-    tools.each do |tool|
-      if str == ""
-        str += tool.
-      else if str != ""
-        str += ","
-        str += tool
-      end
-    end
-    #@fb = @fb6.all
-    @fb = @fb6.where(tool_and_lang: str)
+
     #@fb = Feedback.where(num_of_exam: params[:feedback][:num_of_exam], num_of_project: params[:feedback][:num_of_exam], num_of_assignment: params[:feedback][:num_of_assignment], job_relevance: params[:feedback][:job_relevance], workload: params[:feedback][:workload], category: params[:feedback][:category] )
     end
 end
