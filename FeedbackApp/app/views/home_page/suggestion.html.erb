@@ -3,27 +3,31 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:feedback, url: proper_course_path) do |f| %>
         <%=f.label :num_of_exam %><br>
-        <%= f.select(:num_of_exam, options_for_select([['No selection',''],['1','1'], ['2',2], ['3',3],['4',4]])) %>
+        <%= f.select(:num_of_exam, options_for_select([['No selection',0],['1',1], ['2',2], ['3',3],['4',4]])) %>
         <br />
         <br />
         <%=f.label :num_of_project %><br>
-        <%= f.select(:num_of_project, options_for_select([['No selection',''],['1',1], ['2',2], ['3',3],['4',4],['5',5],['6',6]])) %>
+        <%= f.select(:num_of_project, options_for_select([['No selection',0],['1',1], ['2',2], ['3',3],['4',4],['5',5],['6',6]])) %>
         <br />
         <br />
         <%=f.label :num_of_assignment %><br>
-        <%= f.select(:num_of_assignment, options_for_select([['No selection',''],['1',1], ['2',2], ['3',3],['4',4],['5',5],['6',6]])) %>
+        <%= f.select(:num_of_assignment, options_for_select([['No selection',0],['1',1], ['2',2], ['3',3],['4',4],['5',5],['6',6]])) %>
         <br />
         <br />
         <%=f.label :job_relevance %><br>
-        <%= f.select(:job_relevance, options_for_select([['No selection',''],['1',1], ['2',2], ['3',3],['4',4],['5',5]])) %>
+        <%= f.select(:job_relevance, options_for_select([['No selection',0],['1',1], ['2',2], ['3',3],['4',4],['5',5]])) %>
         <br />
         <br />
         <%=f.label :workload %><br>
-        <%= f.select(:workload, options_for_select([['No selection',''],['7-8',1], ['4-5',2], ['10-12',3]])) %>
+        <%= f.select(:workload, options_for_select([['No selection',0],['7-8',1], ['4-5',2], ['10-12',3]])) %>
         <br />
         <br />
         <%=f.label :category %><br>
-      <%= f.select(:category, options_for_select([['No selection',],['System',1], ['Software',2], ['Network',3],['Data Science',4],['UI',5],['Graphics',6]])) %>
+      <%= f.select(:category, options_for_select([['No selection',0],['System',1], ['Software',2], ['Network',3],['Data Science',4],['UI',5],['Graphics',6]])) %>
+        <br />
+        <br />
+        <%=f.label :tool_and_lang %><br>
+        <%= select_tag(:tool_and_lang, options_for_select([['No selection','0'],['JAVA','1'], ['PYTHON','2'], ['RUBY ON RAILS','3'],['C++','4'],['C','5'],['OTHER','6']],"No selection"), multiple: true) %>
         <br />
         <br />
         <%= f.submit "Search", class: "btn btn-primary" %>
