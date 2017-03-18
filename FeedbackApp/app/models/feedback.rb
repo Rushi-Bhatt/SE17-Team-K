@@ -15,4 +15,9 @@ class Feedback < ApplicationRecord
   validates :quality_of_lecture, :presence => {:message => "Please enter the quality_of_lecture"}
   validates :category, :presence => {:message => "Please enter the category"}
 
+  before_save :uppercase_grade
+
+  def uppercase_grade
+    self.grade.upcase!
+  end
 end

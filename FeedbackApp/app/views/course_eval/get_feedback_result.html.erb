@@ -55,7 +55,7 @@
 
         <%=label_tag(:prof_rating_id,"11)Professor rating of the course")%></br>
         <%=label_tag(@prof_rating_id)%></br>
-        <div id="prof_rating_id" style="height: 300px; width: 50%;"></div>
+        <div id="prof_rating" style="height: 300px; width: 50%;"></div>
 
         <%=label_tag(:related_course,"12)Related coursework")%></br>
         <%=label_tag(@related_course)%></br>
@@ -107,9 +107,9 @@
     drawChart(<%= @num_of_exam.to_json.html_safe %>,"num_of_exam","bar");
     drawChart(<%= @quality_of_lecture.to_json.html_safe %>,"quality_of_lecture","pie");
     drawChart(<%= @tool_and_lang.to_json.html_safe %>,"tool_and_lang","column");
-    drawChart(<%= @category.to_json.html_safe %>,"category","bar");
+    drawChart(<%= @category.to_json.html_safe %>,"category","pie");
     drawChart(<%= @job_relevance.to_json.html_safe %>,"job_relevance","pie");
-    drawChart(<%= @prof_rating_id.to_json.html_safe %>,"prof_rating_id","pie");
+    drawChart(<%= @prof_rating.to_json.html_safe %>,"prof_rating","bar");
     drawChart(<%= @related_course.to_json.html_safe %>,"related_course","column");
   }
   window.onload = drawAllCharts();

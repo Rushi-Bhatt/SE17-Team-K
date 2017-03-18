@@ -1,0 +1,39 @@
+var profs = new Array();
+<% for prof in Professor.all do %>
+profs.push(new Array(<%= prof.id%>, '<%=prof.name %>'));
+<% end %>
+
+var courses = new Array();
+<% for course in Course.all do %>
+courses.push(new Array('<%= course.course_number%>', '<%=course.title %>',<%=course.professor_id %>));
+<% end %>
+
+function courseSelected() {
+
+  var course_num = $('#course_course_number').val();
+  var prof_listing = new Array();
+  var options = $('#course_id')[0].options; //options for the professor dropdown
+  options.length = 0;
+
+  courses.forEach(function(eachCourse){
+    if(eachCourse[0]==course_num){
+      prof_listing.push(eachCourse[2])
+    }
+  });
+  profs.forEach(function(prof) {
+    if (prof_listing.indexOf(prof[0]) != -1 ) {
+      options[options.length] = new Option(prof[1], prof[0]);
+    }
+  });
+  if (options.length == 0) {
+    $('prof_field').hide();
+  } else {
+    $('prof_field').show();
+  }
+}
+
+$(document).ready(function(){
+  courseSelected();
+  $('#course_course_number').change(courseSelected);
+
+});
