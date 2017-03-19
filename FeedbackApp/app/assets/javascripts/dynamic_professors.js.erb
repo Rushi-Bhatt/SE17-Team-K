@@ -9,7 +9,6 @@ courses.push(new Array('<%= course.course_number%>', '<%=course.title %>',<%=cou
 <% end %>
 
 function courseSelected() {
-
   var course_num = $('#course_course_number').val();
   var prof_listing = new Array();
   var options = $('#course_id')[0].options; //options for the professor dropdown
@@ -31,9 +30,3 @@ function courseSelected() {
     $('prof_field').show();
   }
 }
-
-$(document).ready(function(){
-  courseSelected();
-  $('#course_course_number').change(courseSelected);
-
-});

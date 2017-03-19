@@ -80,16 +80,14 @@
 
         <%=label_tag(:quality_of_lecture,"7) How do you rate the quality of lectures?")%></br>
         <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:quality_of_lecture,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:quality_of_lecture,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:quality_of_lecture,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:quality_of_lecture,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:quality_of_lecture,'5')%>
+            <%= label_tag(:one,"Not good")%>
+            <%= radio_button_tag(:quality_of_lecture,'1')%>
+            <%= label_tag(:two,"Neutral")%>
+            <%= radio_button_tag(:quality_of_lecture,'2')%>
+            <%= label_tag(:three,"Good")%>
+            <%= radio_button_tag(:quality_of_lecture,'3')%>
+            <%= label_tag(:four,"Impressive")%>
+            <%= radio_button_tag(:quality_of_lecture,'4')%>
         </div>
 
         <%=label_tag(:tool_and_lang,"8) Which Tools/Languages did you use?")%></br>
@@ -99,18 +97,16 @@
         <%= select_tag :category, options_for_select([[ "System","1"], ["Design","2"],["Networks","3"],["Software engineering","4"],["Data Science","5"],["Other","0"]], "C")%>
 
 
-        <%=label_tag(:job_relevance,"7) How do you rate the job relevance of the course?")%></br>
+        <%=label_tag(:job_relevance,"10) How do you rate the job relevance of the course?")%></br>
         <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:job_relevance,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:job_relevance,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:job_relevance,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:job_relevance,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:job_relevance,'5')%>
+          <%= label_tag(:one,"Not relevant")%>
+          <%= radio_button_tag(:job,'1')%>
+          <%= label_tag(:two,"Somewhat relevant")%>
+          <%= radio_button_tag(:job,'2')%>
+          <%= label_tag(:three,"relevant")%>
+          <%= radio_button_tag(:job,'3')%>
+          <%= label_tag(:four,"Highly relevant")%>
+          <%= radio_button_tag(:job,'4')%>
         </div>
 
 

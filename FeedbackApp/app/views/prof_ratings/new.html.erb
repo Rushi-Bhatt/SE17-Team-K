@@ -3,66 +3,67 @@
 <div class="row">
   <div >
     <%=form_for @prof_rating do |f| %>
-        <%=label_tag(:prof_ratings," How do you rate the professor?")%></br>
-        <%=label_tag(:fluency,"i) Language and Fluency:")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:fluency,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:fluency,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:fluency,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:fluency,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:fluency,'5')%>
+        <%=label_tag(:prof_ratings,"How do you rate the professor?")%></br>
+        <div>
+        <%=label_tag(:fluency,"i)Language and Fluency:")%></br>
+          <%= f.range_field :fluency, :min=>0, :max=>4, :class=>"slide", :id=>"fluency"%>
         </div>
-
-        <%=label_tag(:course_material,"ii) Course Material:")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:course_material,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:course_material,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:course_material,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:course_material,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:course_material,'5')%>
+        <div>
+        <%=label_tag(:course_material,"ii)Course Material:")%></br>
+          <%= f.range_field :course_material, :min=>0, :max=>4, :class=>"slide", :id=>"course_material"%>
         </div>
-
-        <%=label_tag(:knowledge,"iii) Course knowledge:")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:knowledge,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:knowledge,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:knowledge,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:knowledge,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:knowledge,'5')%>
+        <div>
+        <%=label_tag(:knowledge,"iii)Course knowledge:")%></br>
+          <%= f.range_field :knowledge, :min=>0, :max=>4, :class=>"slide", :id=>"knowledge"%>
         </div>
-
-        <%=label_tag(:doubt_solving,"iv) Helpfulness:")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:doubt_solving,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:doubt_solving,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:doubt_solving,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:doubt_solving,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:doubt_solving,'5')%>
-        </div>
-
-
+        <div>
+        <%=label_tag(:doubt_solving,"iv)Helpfulness:")%></br>
+          <%= f.range_field :doubt_solving, :min=>0, :max=>4, :class=>"slide", :id=>"doubt_solving"%>        </div>
         <%=f.submit "create", class: "btn btn-primary"%>
     <%end%>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#fluency').slider({
+    formatter: function(value) {
+      return 'Fluency: ' + value;
+    },
+    ticks: [0, 1, 2, 3, 4],
+    ticks_positions: [0,25,50,75,100],
+    ticks_labels: ['Not Fluent', '', '', '', 'Very Fluent'],
+    ticks_snap_bounds: 1
+  });
+
+  $('#course_material').slider({
+    formatter: function(value) {
+      return 'Course Material ' + value;
+    },
+    ticks: [0, 1, 2, 3, 4],
+    ticks_positions: [0,25,50,75,100],
+    ticks_labels: ['Not Good', '', '', '', 'Very Good'],
+    ticks_snap_bounds: 1
+  });
+
+  $('#knowledge').slider({
+    formatter: function(value) {
+      return 'Knowledge: ' + value;
+    },
+    ticks: [0, 1, 2, 3, 4],
+    ticks_positions: [0,25,50,75,100],
+    ticks_labels: ['Preliminary', '', '', '', 'In-Depth'],
+    ticks_snap_bounds: 1
+  });
+
+  $('#doubt_solving').slider({
+    formatter: function(value) {
+      return 'Helpfulness: ' + value;
+    },
+    ticks: [0, 1, 2, 3, 4],
+    ticks_positions: [0,25,50,75,100],
+    ticks_labels: ['Not helpful', '', '', '', 'Welcoming'],
+    ticks_snap_bounds: 1
+  });
+
+</script>
 <p>CSC510 project</p>
