@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223061026) do
+ActiveRecord::Schema.define(version: 20170401032756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "adminpack"
 
   create_table "courses", force: :cascade do |t|
     t.string   "course_number"
@@ -35,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170223061026) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "course_number"
+    t.integer  "course_number"
     t.integer  "professor_id"
     t.integer  "user_id"
     t.integer  "num_of_exam"
@@ -89,6 +88,15 @@ ActiveRecord::Schema.define(version: 20170223061026) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "review_id"
+    t.integer  "like"
+    t.integer  "dislike"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "courses", "departments"

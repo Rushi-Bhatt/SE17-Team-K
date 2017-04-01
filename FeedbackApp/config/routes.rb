@@ -37,10 +37,12 @@ Rails.application.routes.draw do
   post '/search_course', to: 'courses#search_course'
 
   get '/show_review', to: 'courses#show_review'
+  get '/like', to: 'reviews#like'
+  get '/dislike', to: 'reviews#dislike'
   post '/proper_course', to:'feedbacks#proper_course'
   resources :prof_ratings
   resources :users
   resources :courses
-  resources :reviews, only: [:create, :destroy]
+  resources :reviews
   resources :feedbacks
 end
