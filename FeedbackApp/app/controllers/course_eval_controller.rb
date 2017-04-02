@@ -11,12 +11,14 @@ class CourseEvalController < ApplicationController
       3=>"10-12"
   }
   @@job_relevance_map={
+      0=>"Not at all relevant",
       1=>"Not relevant",
       2=>"Somewhat relevant",
       3=>"relevant",
       4=>"Highly relevant"
   }
   @@quality_of_lecture_map={
+      0=>"Bad",
       1=>"Not good",
       2=>"Neutral",
       3=>"Good",

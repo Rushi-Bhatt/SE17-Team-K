@@ -12,12 +12,16 @@ class FeedbacksController < ApplicationController
 
   def create
     @tool_and_lang = params[:tool_and_lang].join(',')
+    @related_course = params[:related_course].join(',')
+    logger.info @related_course
     logger.info @tool_and_lang
     logger.info @@prof_rating_id
     logger.info @@professor_id
     logger.info @@course_number
     logger.info @@user_id
-    @feedback_id = Feedback.new(:prof_rating_id=>@@prof_rating_id.to_i, :professor_id => @@professor_id.to_i,:user_id => @@user_id.to_i,:num_of_exam => params[:num_of_exam].to_i,:num_of_project => params[:num_of_project].to_i,:num_of_assignment=> params[:num_of_assignment].to_i,:tool_and_lang=>@tool_and_lang, :fav_factor=>params[:fav_factor].to_i,:course_number=>@@course_number,:job_relevance=> params[:job_relevance].to_i, :workload=>params[:workload].to_i, :grade=>params[:grade], :related_course=>"CSC517,CSC213", :quality_of_lecture=> params[:quality_of_lecture].to_i, :category=> params[:category].to_i)
+
+    logger.info params
+    @feedback_id = Feedback.new(:prof_rating_id=>@@prof_rating_id.to_i, :professor_id => @@professor_id.to_i,:user_id => @@user_id.to_i,:num_of_exam => params[:feedback][:num_of_exam].to_i,:num_of_project => params[:feedback][:num_of_project].to_i,:num_of_assignment=> params[:feedback][:num_of_assignment].to_i,:tool_and_lang=>@tool_and_lang, :fav_factor=>params[:fav_factor].to_i,:course_number=>@@course_number,:job_relevance=> params[:feedback][:job_relevance].to_i, :workload=>params[:workload].to_i, :grade=>params[:grade], :related_course=>@related_course, :quality_of_lecture=> params[:feedback][:quality_of_lecture].to_i, :category=> params[:category].to_i)
     if @feedback_id.save
       #redirect to course feedback forrm with prof rating as a parameter
       redirect_to(:controller => 'feedbacks', :action => 'save')

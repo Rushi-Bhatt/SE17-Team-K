@@ -7,7 +7,7 @@
         <%=label_tag(:fav_factor,"1) What do you like the best about the course?")%></br>
         <div class="form-group">
           <%= label_tag(:Instructor,"Instructor")%>
-          <%= radio_button_tag(:fav_factor,'1')%>
+          <%= radio_button_tag(:fav_factor,'1') %>
           <%= label_tag(:Project_assignment,"Project/Assignments") %>
           <%= radio_button_tag(:fav_factor,'2') %>
           <%= label_tag(:Course_material,"Course Material") %>
@@ -26,68 +26,30 @@
           <%= radio_button_tag(:workload,'3')%>
         </div>
 
+
         <%=label_tag(:grade,"3) What grade did you get in the course?")%></br>
-        <div class="form-group">
-          <%= label_tag(:A_plus,"A+")%>
-          <%= radio_button_tag(:grade,'A+')%>
-          <%= label_tag(:A,"A")%>
-          <%= radio_button_tag(:grade,'A')%>
-          <%= label_tag(:A_minus,"A-")%>
-          <%= radio_button_tag(:grade,'A-')%>
-          <%= label_tag(:B_plus,"B+")%>
-          <%= radio_button_tag(:grade,'B+')%>
-          <%= label_tag(:B,"B")%>
-          <%= radio_button_tag(:grade,'B')%>
-          <%= label_tag(:B_minus,"B-")%>
-          <%= radio_button_tag(:grade,'B-')%>
-          <%= label_tag(:C_plus,"C+")%>
-          <%= radio_button_tag(:grade,'C+')%>
-          <%= label_tag(:C,"C")%>
-          <%= radio_button_tag(:grade,'C')%>
-          <%= label_tag(:C_minus,"C-")%>
-          <%= radio_button_tag(:grade,'C-')%>
+        <%= select_tag :grade, options_for_select([[ "A+","A+"], ["A","A"],["A-","A-"],["B+","B+"],["B","B"],["B-","B-"],["C+","C+"],["C","C"],["C-","C-"]], "A+")%>
+
+
+        <%=label_tag(:num_of_exam,"4) How many exams are there in the course?")%></br>
+        <div>
+          <%= f.range_field :num_of_exam, :min=>0, :max=>5, :class=>"slide", :id=>"num_of_exam"%>
         </div>
 
-        <%=label_tag(:num_of_project,"4) How many projects are there in the course?")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:num_of_project,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:num_of_project,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:num_of_project,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:num_of_project,'4')%>
-          <%= label_tag(:five,"5")%>
-          <%= radio_button_tag(:num_of_project,'5')%>
-          <%= label_tag(:six,"6 or more")%>
-          <%= radio_button_tag(:num_of_project,'6')%>
+        <%=label_tag(:num_of_project,"5) How many projects are there in the course?")%></br>
+        <div>
+          <%= f.range_field :num_of_project, :min=>0, :max=>5, :class=>"slide", :id=>"num_of_project"%>
         </div>
 
-        <%=label_tag(:num_of_assignment,"5) How many assignments are there in the course?")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"1")%>
-          <%= radio_button_tag(:num_of_assignment,'1')%>
-          <%= label_tag(:two,"2")%>
-          <%= radio_button_tag(:num_of_assignment,'2')%>
-          <%= label_tag(:three,"3")%>
-          <%= radio_button_tag(:num_of_assignment,'3')%>
-          <%= label_tag(:four,"4")%>
-          <%= radio_button_tag(:num_of_assignment,'4')%>
-          <%= label_tag(:five,"5 or more")%>
-          <%= radio_button_tag(:num_of_assignment,'5')%>
+        <%=label_tag(:num_of_assignment,"6) How many Assignments are there in the course?")%></br>
+        <div>
+          <%= f.range_field :num_of_assignment, :min=>0, :max=>5, :class=>"slide", :id=>"num_of_assignment"%>
         </div>
+
 
         <%=label_tag(:quality_of_lecture,"7) How do you rate the quality of lectures?")%></br>
-        <div class="form-group">
-            <%= label_tag(:one,"Not good")%>
-            <%= radio_button_tag(:quality_of_lecture,'1')%>
-            <%= label_tag(:two,"Neutral")%>
-            <%= radio_button_tag(:quality_of_lecture,'2')%>
-            <%= label_tag(:three,"Good")%>
-            <%= radio_button_tag(:quality_of_lecture,'3')%>
-            <%= label_tag(:four,"Impressive")%>
-            <%= radio_button_tag(:quality_of_lecture,'4')%>
+        <div>
+          <%= f.range_field :quality_of_lecture, :min=>0, :max=>4, :class=>"slide", :id=>"quality_of_lecture"%>
         </div>
 
         <%=label_tag(:tool_and_lang,"8) Which Tools/Languages did you use?")%></br>
@@ -96,22 +58,94 @@
         <%=label_tag(:category,"9) How do you categorize this course?")%></br>
         <%= select_tag :category, options_for_select([[ "System","1"], ["Design","2"],["Networks","3"],["Software engineering","4"],["Data Science","5"],["Other","0"]], "C")%>
 
+        <%=label_tag(:related_course,"10) Which other courses are related to this one?")%></br>
+        <% course_Array =  Course.select(:course_number,:title).group(:course_number,:title) %>
+        <% related_course_array= []%>
+        <% course_Array.each do |course| %>
+            <% if course.course_number!= params[:course_number]%>
+              <%course_touple=[]%>
+              <%course_touple.append(course.course_number_and_title)%>
+              <%course_touple.append(course.course_number)%>
+              <% related_course_array.append(course_touple)%>
+            <%end%>
+        <% end %>
+        <%= select_tag :related_course, options_for_select(related_course_array), multiple: true%>
 
         <%=label_tag(:job_relevance,"10) How do you rate the job relevance of the course?")%></br>
-        <div class="form-group">
-          <%= label_tag(:one,"Not relevant")%>
-          <%= radio_button_tag(:job,'1')%>
-          <%= label_tag(:two,"Somewhat relevant")%>
-          <%= radio_button_tag(:job,'2')%>
-          <%= label_tag(:three,"relevant")%>
-          <%= radio_button_tag(:job,'3')%>
-          <%= label_tag(:four,"Highly relevant")%>
-          <%= radio_button_tag(:job,'4')%>
+        <div>
+          <%= f.range_field :job_relevance, :min=>0, :max=>4, :class=>"slide", :id=>"job_relevance"%>
         </div>
-
 
         <%=f.submit "create", class: "btn btn-primary"%>
     <%end%>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#num_of_project').slider({
+    formatter: function(value) {
+      if (value==5){
+        return 'Projects: ' + value+' or more';
+      }else{
+        return 'Projects: ' + value;
+      }
+
+    },
+    ticks: [0, 1, 2, 3, 4, 5],
+    ticks_positions: [0,20,40,60,80,100],
+    ticks_labels: ['0', '1', '2', '3', '4','>=5 '],
+    ticks_snap_bounds: 1
+  });
+  $('#num_of_exam').slider({
+    formatter: function(value) {
+      if (value==5){
+        return 'Exams: ' + value+' or more';
+      }else{
+        return 'Exams: ' + value;
+      }
+
+    },
+    ticks: [0, 1, 2, 3, 4, 5],
+    ticks_positions: [0,20,40,60,80,100],
+    ticks_labels: ['0', '1', '2', '3', '4','>=5 '],
+    ticks_snap_bounds: 1
+  });
+  $('#num_of_assignment').slider({
+    formatter: function(value) {
+      if (value==5){
+        return 'Assignments: ' + value+' or more';
+      }else{
+        return 'Assignments: ' + value;
+      }
+
+    },
+    ticks: [0, 1, 2, 3, 4, 5],
+    ticks_positions: [0,20,40,60,80,100],
+    ticks_labels: ['0', '1', '2', '3', '4','>=5 '],
+    ticks_snap_bounds: 1
+  });
+  $('#quality_of_lecture').slider({
+    formatter: function(value) {
+
+        return 'Quality: ' + value;
+    },
+    ticks: [0, 1, 2, 3, 4],
+    ticks_positions: [0,25,50,75,100],
+    ticks_labels: ['Not Good', ' ', ' ', ' ', 'Very Good'],
+    ticks_snap_bounds: 1
+  });
+
+  $('#job_relevance').slider({
+    formatter: function(value) {
+
+      return 'Job relevance: ' + value;
+    },
+    ticks: [0, 1, 2, 3, 4],
+    ticks_positions: [0,25,50,75,100],
+    ticks_labels: ['Not relevant', ' ', ' ', ' ', 'Very relevant'],
+    ticks_snap_bounds: 1
+  });
+
+
+</script>
 <p>CSC510 project</p>

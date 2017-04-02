@@ -1,71 +1,168 @@
 <% provide(:title, "get_feedback_result") %>
 <html>
 <head>
-<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<style>
-  .canvasjs-chart-credit {
-    display: none;
-  }
-</style>
+  <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <style>
+    .canvasjs-chart-credit {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-<h1 xmlns="http://www.w3.org/1999/html">Below is the feedback for your selection</h1>
+<h3 xmlns="http://www.w3.org/1999/html">Below is the feedback for your selection</h3>
 <div class="row">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'fav_factor')" id="defaultOpen">Favourite-Factor</button>
+    <button class="tablinks" onclick="openCity(event, 'workload')">Workload</button>
+    <button class="tablinks" onclick="openCity(event, 'grade')">Grading</button>
+    <button class="tablinks" onclick="openCity(event, 'num_of_project')">Projects</button>
+    <button class="tablinks" onclick="openCity(event, 'num_of_assignment')">Assignments</button>
+    <button class="tablinks" onclick="openCity(event, 'num_of_exam')">Exams</button>
+    <button class="tablinks" onclick="openCity(event, 'quality_of_lecture')">Lecture Quality</button>
+    <button class="tablinks" onclick="openCity(event, 'tool_and_lang')">Tools/Languages</button>
+    <button class="tablinks" onclick="openCity(event, 'category')">Category</button>
+    <button class="tablinks" onclick="openCity(event, 'job_relevance')">Job Relevance</button>
+    <button class="tablinks" onclick="openCity(event, 'prof_rating')">Professor Rating</button>
+    <button class="tablinks" onclick="openCity(event, 'related_course')">Related Courses</button>
+  </div>
   <div >
     <%=form_for :feedback do |f| %>
-        <%=label_tag(:fav_factor,"1) Favourite Factor about the course")%></br>
-        <%=label_tag(@fav_factor)%></br>
-        <div id="fav_factor" style="height: 300px; width: 50%;"></div>
+        <div id="fav_factor" class="tabcontent">
+          <%=label_tag(:fav_factor,"1) Favourite Factor about the course")%></br>
+          <%=label_tag(@fav_factor)%></br>
+          <div id="fav_factor_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:workload,"2)Approximate workload in hours/week")%></br>
-        <%=label_tag(@workload)%></br>
-        <div id="workload" style="height: 300px; width: 50%;"></div>
+        <div id="workload" class="tabcontent">
+          <%=label_tag(:workload,"2)Approximate workload in hours/week")%></br>
+          <%=label_tag(@workload)%></br>
+          <div id="workload_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:grade,"3) Grade in the course")%></br>
-        <%=label_tag(@grade)%></br>
-        <div id="grade" style="height: 300px; width: 50%;"></div>
+        <div id="grade" class="tabcontent">
+          <%=label_tag(:grade,"3) Grade in the course")%></br>
+          <%=label_tag(@grade)%></br>
+          <div id="grade_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:num_of_project,"4)Projects in the course")%></br>
-        <%=label_tag(@num_of_project)%></br>
-        <div id="num_of_project" style="height: 300px; width: 50%;"></div>
+        <div id="num_of_project" class="tabcontent">
+          <%=label_tag(:num_of_project,"4)Projects in the course")%></br>
+          <%=label_tag(@num_of_project)%></br>
+          <div id="num_of_project_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:@num_of_assignment,"5)Assignments in the course")%></br>
-        <%=label_tag(@num_of_assignment)%></br>
-        <div id="num_of_assignment" style="height: 300px; width: 50%;"></div>
+        <div id="num_of_assignment" class="tabcontent">
+          <%=label_tag(:@num_of_assignment,"5)Assignments in the course")%></br>
+          <%=label_tag(@num_of_assignment)%></br>
+          <div id="num_of_assignment_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:@num_of_exam,"6)Exams in the course")%></br>
-        <%=label_tag(@num_of_exam)%></br>
-        <div id="num_of_exam" style="height: 300px; width: 50%;"></div>
+        <div id="num_of_exam" class="tabcontent">
+          <%=label_tag(:@num_of_exam,"6)Exams in the course")%></br>
+          <%=label_tag(@num_of_exam)%></br>
+          <div id="num_of_exam_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:quality_of_lecture,"7)The quality of lectures")%></br>
-        <%=label_tag(@quality_of_lecture)%></br>
-        <div id="quality_of_lecture" style="height: 300px; width: 50%;"></div>
+        <div id="quality_of_lecture" class="tabcontent">
+          <%=label_tag(:quality_of_lecture,"7)The quality of lectures")%></br>
+          <%=label_tag(@quality_of_lecture)%></br>
+          <div id="quality_of_lecture_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:tool_and_lang,"8) Tools/Languages used in the course")%></br>
-        <%=label_tag(@tool_and_lang)%></br>
-        <div id="tool_and_lang" style="height: 300px; width: 50%;"></div>
+        <div id="tool_and_lang" class="tabcontent">
+          <%=label_tag(:tool_and_lang,"8) Tools/Languages used in the course")%></br>
+          <%=label_tag(@tool_and_lang)%></br>
+          <div id="tool_and_lang_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:category,"9)How do you categorize this course")%></br>
-        <%=label_tag(@category)%></br>
-        <div id="category" style="height: 300px; width: 50%;"></div>
+        <div id="category" class="tabcontent">
+          <%=label_tag(:category,"9)How do you categorize this course")%></br>
+          <%=label_tag(@category)%></br>
+          <div id="category_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:job_relevance,"10)Job relevance of the course")%></br>
-        <%=label_tag(@job_relevance)%></br>
-        <div id="job_relevance" style="height: 300px; width: 50%;"></div>
+        <div id="job_relevance" class="tabcontent">
+          <%=label_tag(:job_relevance,"10)Job relevance of the course")%></br>
+          <%=label_tag(@job_relevance)%></br>
+          <div id="job_relevance_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:prof_rating_id,"11)Professor rating of the course")%></br>
-        <%=label_tag(@prof_rating_id)%></br>
-        <div id="prof_rating" style="height: 300px; width: 50%;"></div>
+        <div id="prof_rating" class="tabcontent">
+          <%=label_tag(:prof_rating_id,"11)Professor rating of the course")%></br>
+          <%=label_tag(@prof_rating_id)%></br>
+          <div id="prof_rating_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-        <%=label_tag(:related_course,"12)Related coursework")%></br>
-        <%=label_tag(@related_course)%></br>
-        <div id="related_course" style="height: 300px; width: 50%;"></div>
+        <div id="related_course" class="tabcontent">
+          <%=label_tag(:related_course,"12)Related coursework")%></br>
+          <%=label_tag(@related_course)%></br>
+          <div id="related_course_chart" style="height: 400px; width: 80%;"></div>
+        </div>
 
-
-  <%end%>
+    <%end%>
   </div>
 </div>
 <p>CSC510 project</p>
+<style>
+  /* Style the tab */
+  div.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 15%;
+    height: 100px;
+  }
+
+  /* Style the buttons inside the tab */
+  div.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 9.1px 4px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  /* Change background color of buttons on hover */
+  div.tab button:hover {
+    background-color: #ddd;
+  }
+
+  /* Create an active/current "tab button" class */
+  div.tab button.active {
+    background-color: #ccc;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 100%;
+  }
+
+  .tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+
+  @-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+</style>
 <script type="text/javascript">
 
   function createChartData(data){
@@ -99,19 +196,45 @@
   }
 
   function drawAllCharts(){
-    drawChart(<%= @fav_factor.to_json.html_safe %>,"fav_factor","pie");
-    drawChart(<%= @workload.to_json.html_safe %>,"workload","column");
-    drawChart(<%= @grade.to_json.html_safe %>,"grade","pie");
-    drawChart(<%= @num_of_project.to_json.html_safe %>,"num_of_project","bar");
-    drawChart(<%= @num_of_assignment.to_json.html_safe %>,"num_of_assignment","column");
-    drawChart(<%= @num_of_exam.to_json.html_safe %>,"num_of_exam","bar");
-    drawChart(<%= @quality_of_lecture.to_json.html_safe %>,"quality_of_lecture","pie");
-    drawChart(<%= @tool_and_lang.to_json.html_safe %>,"tool_and_lang","column");
-    drawChart(<%= @category.to_json.html_safe %>,"category","pie");
-    drawChart(<%= @job_relevance.to_json.html_safe %>,"job_relevance","pie");
-    drawChart(<%= @prof_rating.to_json.html_safe %>,"prof_rating","bar");
-    drawChart(<%= @related_course.to_json.html_safe %>,"related_course","column");
+
+    drawChart(<%= @fav_factor.to_json.html_safe %>,"fav_factor_chart","pie");
+    drawChart(<%= @workload.to_json.html_safe %>,"workload_chart","column");
+    drawChart(<%= @grade.to_json.html_safe %>,"grade_chart","pie");
+    drawChart(<%= @num_of_project.to_json.html_safe %>,"num_of_project_chart","bar");
+    drawChart(<%= @num_of_assignment.to_json.html_safe %>,"num_of_assignment_chart","column");
+    drawChart(<%= @num_of_exam.to_json.html_safe %>,"num_of_exam_chart","bar");
+    drawChart(<%= @quality_of_lecture.to_json.html_safe %>,"quality_of_lecture_chart","pie");
+    drawChart(<%= @tool_and_lang.to_json.html_safe %>,"tool_and_lang_chart","column");
+    drawChart(<%= @category.to_json.html_safe %>,"category_chart","pie");
+    drawChart(<%= @job_relevance.to_json.html_safe %>,"job_relevance_chart","pie");
+    drawChart(<%= @prof_rating.to_json.html_safe %>,"prof_rating_chart","bar");
+    drawChart(<%= @related_course.to_json.html_safe %>,"related_course_chart","column");
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
   }
+
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
   window.onload = drawAllCharts();
 
 
