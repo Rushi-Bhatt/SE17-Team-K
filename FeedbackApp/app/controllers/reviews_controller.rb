@@ -18,11 +18,21 @@ class ReviewsController < ApplicationController
   end
 
   def like
-    @vote = Vote.where(user_id: params[:user_id], review_id: params[:review_id])
-    if !@vote.ids.present?
+    @review = Review.find(params[:review_id])
+    @vote = Vote.find_by(user_id: params[:user_id], review_id: params[:review_id])
+    if !@vote.nil?
+      if @vote.like == 1
+        # if @vote.delete
+        @vote.update_attributes(like: 0)
+        @review.update_attributes(likes: @review.likes-1)
+        # end
+      elsif @vote.dislike == 0
+        @vote.update_attributes(like: 1)
+        @review.update_attributes(likes: @review.likes+1)
+      end
+    else
       @vote = Vote.new(user_id: params[:user_id], review_id: params[:review_id], like: 1, dislike: 0)
       if @vote.save
-        @review = Review.find(params[:review_id])
         @review.update_attributes(likes: @review.likes+1)
       end
     end
@@ -30,11 +40,21 @@ class ReviewsController < ApplicationController
   end
 
   def dislike
-    @vote = Vote.where(user_id: params[:user_id], review_id: params[:review_id])
-    if !@vote.ids.present?
+    @review = Review.find(params[:review_id])
+    @vote = Vote.find_by(user_id: params[:user_id], review_id: params[:review_id])
+    if !@vote.nil?
+      if @vote.dislike == 1
+        # if @vote.delete
+        @vote.update_attributes(dislike: 0)
+        @review.update_attributes(dislikes: @review.dislikes-1)
+        # end
+      elsif @vote.like == 0
+        @vote.update_attributes(dislike: 1)
+        @review.update_attributes(dislikes: @review.dislikes+1)
+      end
+    else
       @vote = Vote.new(user_id: params[:user_id], review_id: params[:review_id], like: 0, dislike: 1)
       if @vote.save
-        @review = Review.find(params[:review_id])
         @review.update_attributes(dislikes: @review.dislikes+1)
       end
     end
