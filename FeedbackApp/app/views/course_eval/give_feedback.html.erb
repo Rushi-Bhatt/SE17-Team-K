@@ -9,7 +9,7 @@
         <p id="prof_field">
           <%=f.label :professor_id%>
           <%= f.collection_select(:id, Professor.all, :id, :name) %>
-          <%=f.submit "get_feedback_form", class: "btn btn-primary"%>
+          <%=f.submit "Give Feedback", class: "btn btn-primary"%>
         </p>
     <%end%>
   </div>
@@ -23,4 +23,3 @@
   });
 </script>
 
-<p>CSC510 project</p>

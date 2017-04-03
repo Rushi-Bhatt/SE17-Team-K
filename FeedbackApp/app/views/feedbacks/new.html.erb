@@ -1,11 +1,10 @@
 <% provide(:title, "give_feedback_for_course") %>
-<h1 xmlns="http://www.w3.org/1999/html">Enter your feedback for course</h1>
-<div class="row">
-  <div >
+<h3 xmlns="http://www.w3.org/1999/html">Enter your feedback for course</h3>
+<div class="row" style="height: 1030px;">
+  <div id="course_rating_form">
     <%=form_for @feedback do |f| %>
-        <%= label_tag(:two,@prof_rating)%>
         <%=label_tag(:fav_factor,"1) What do you like the best about the course?")%></br>
-        <div class="form-group">
+        <div class="form-group fav_factor">
           <%= label_tag(:Instructor,"Instructor")%>
           <%= radio_button_tag(:fav_factor,'1') %>
           <%= label_tag(:Project_assignment,"Project/Assignments") %>
@@ -17,7 +16,7 @@
         </div>
 
         <%=label_tag(:workload,"2) What is the approximate workload in hours/week?")%></br>
-        <div class="form-group">
+        <div class="form-group workload">
           <%= label_tag(:four_five,"4-5")%>
           <%= radio_button_tag(:workload,'1')%>
           <%= label_tag(:seven_eight,"7-8")%>
@@ -76,11 +75,41 @@
           <%= f.range_field :job_relevance, :min=>0, :max=>4, :class=>"slide", :id=>"job_relevance"%>
         </div>
 
-        <%=f.submit "create", class: "btn btn-primary"%>
+        <%=f.submit "create", class: "btn btn-primary submit"%>
     <%end%>
   </div>
 </div>
+<style>
+  .slider.slider-horizontal .slider-track {
+    height: 15px;
+    width: 100%;
+    margin-top: -7.5px;
+    top: 50%;
+    left: 0;
+  }
+  #course_rating_form{
+    align-content: center;
+    width: 30%;
+    padding: 10px;
+    left:100px;
+  }
+  .submit{
+    width:275px;
+  }
 
+  .slider-tick-label{
+    font-size: 11px;
+  }
+  .slider.slider-horizontal{
+    margin-bottom: 35px!important;
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+  .fav_factor label,.workload label
+  {
+    font-weight: normal;
+  }
+</style>
 <script type="text/javascript">
   $('#num_of_project').slider({
     formatter: function(value) {
@@ -148,4 +177,4 @@
 
 
 </script>
-<p>CSC510 project</p>
+

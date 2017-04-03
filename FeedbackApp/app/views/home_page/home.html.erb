@@ -1,8 +1,147 @@
-<div class="center jumbotron">
-<h1>Course Feedback</h1>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Forum", show_course_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Course Eval", course_eval_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Suggestion", suggestion_path, class: "btn btn-lg btn-primary" %>
+<div class="center jumbotron" style="height: 457px">
+<h3>Welcome to Course Feedback System</h3>
+  <div class="row">
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'forum')" id="defaultOpen">Forum</button>
+      <button class="tablinks" onclick="openCity(event, 'course_eval')">Course-Eval</button>
+      <button class="tablinks" onclick="openCity(event, 'suggestion')">Suggestion</button>
+    </div>
+    <div>
+      <div id="forum" class="tabcontent">
+        <p style="margin-top: 10%"> Forum does this and that</p>
+        <div class="button">
+          <%= link_to "Forum", show_course_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+      <div id="course_eval" class="tabcontent">
+        <p style="margin-top: 10%"> course Eval does this and that</p>
+        <div style="display: inline-flex; margin-top: 18%;margin-left: 52%">
+          <div id="giveFeedback">
+            <%= link_to "Give Feedback", course_eval_givefeedback_path, class: "btn btn-lg btn-primary" %>
+          </div>
+          <div id="getFeedback">
+            <%= link_to "Get Feedback", course_eval_getfeedback_path, class: "btn btn-lg btn-primary" %>
+          </div>
+        </div>
+      </div>
+      <div id="suggestion" class="tabcontent">
+        <p style="margin-top: 10%"> Suggestions does this and that</p>
+        <div class="button">
+          <%= link_to "Suggestion", suggestion_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+    </div>
 
+  </div>
 </div>
+<style>
+  .button{
+    margin-top: 20%;
+    margin-left: 77%;
+  }
+  #giveFeedback{
+
+  }
+  #getFeedback{
+    padding-left: 20px;
+  }
+  #forum{
+    background-image: url("/assets/forum.jpg");
+    background-size: cover;
+
+
+  }
+  #course_eval{
+    background-image: url("/assets/course_eval.jpg");
+    background-size: cover;
+  }
+  #suggestion{
+    background-image: url("/assets/suggestion.jpg");
+    background-size: cover;
+  }
+  /* Style the tab */
+  div.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 15%;
+    height: 97%;
+  }
+
+  /* Style the buttons inside the tab */
+  div.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 49.1px 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+
+  }
+
+  /* Change background color of buttons on hover */
+  div.tab button:hover {
+    background-color: #ddd;
+  }
+
+  /* Create an active/current "tab button" class */
+  div.tab button.active {
+    background-color: #ccc;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 85%;
+    border-left: none;
+    height: 355px;
+  }
+
+  .tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+
+  @-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+</style>
+<script>
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>

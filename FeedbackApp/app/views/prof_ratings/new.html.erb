@@ -1,29 +1,56 @@
 <% provide(:title, "give_feedback_for_professor") %>
-<h1 xmlns="http://www.w3.org/1999/html">Enter your feedback for professor</h1>
-<div class="row">
-  <div >
+<h3 xmlns="http://www.w3.org/1999/html">Enter your feedback for professor</h3>
+<div class="row" style="height: 400px">
+  <div id="prof_rating_form" >
     <%=form_for @prof_rating do |f| %>
         <%=label_tag(:prof_ratings,"How do you rate the professor?")%></br>
         <div>
-        <%=label_tag(:fluency,"i)Language and Fluency:")%></br>
+        <%=label_tag(:fluency,"A) Language and Fluency:")%></br>
           <%= f.range_field :fluency, :min=>0, :max=>4, :class=>"slide", :id=>"fluency"%>
         </div>
         <div>
-        <%=label_tag(:course_material,"ii)Course Material:")%></br>
+        <%=label_tag(:course_material,"B) Course Material:")%></br>
           <%= f.range_field :course_material, :min=>0, :max=>4, :class=>"slide", :id=>"course_material"%>
         </div>
         <div>
-        <%=label_tag(:knowledge,"iii)Course knowledge:")%></br>
+        <%=label_tag(:knowledge,"C) Course knowledge:")%></br>
           <%= f.range_field :knowledge, :min=>0, :max=>4, :class=>"slide", :id=>"knowledge"%>
         </div>
         <div>
-        <%=label_tag(:doubt_solving,"iv)Helpfulness:")%></br>
-          <%= f.range_field :doubt_solving, :min=>0, :max=>4, :class=>"slide", :id=>"doubt_solving"%>        </div>
-        <%=f.submit "create", class: "btn btn-primary"%>
+        <%=label_tag(:doubt_solving,"D) Helpfulness:")%></br>
+          <%= f.range_field :doubt_solving, :min=>0, :max=>4, :class=>"slide", :id=>"doubt_solving"%>
+        </div>
+        <%=f.submit "create", class: "btn btn-primary submit"%>
     <%end%>
   </div>
 </div>
+<style>
+  .slider-tick-label{
+    font-size: 11px;
+  }
+  .slider.slider-horizontal{
+      margin-bottom: 35px!important;
+      margin-left: 35px;
+      margin-top: 10px;
+  }
+    #prof_rating_form{
+      align-content: center;
+      width: 75%;
+      padding: 10px;
+      left:100px;
+    }
+    .submit{
+      width:275px;
+    }
 
+    .slider.slider-horizontal .slider-track {
+    height: 15px;
+    width: 100%;
+    margin-top: -7.5px;
+    top: 50%;
+    left: 0;
+  }
+</style>
 <script type="text/javascript">
   $('#fluency').slider({
     formatter: function(value) {
@@ -66,4 +93,4 @@
   });
 
 </script>
-<p>CSC510 project</p>
+

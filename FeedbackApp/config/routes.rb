@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'feedbacks/save'
 
-  root 'home_page#home'
+  root 'sessions#new'
   get '/home', to: 'home_page#home'
   get '/about', to: 'home_page#about'
 
