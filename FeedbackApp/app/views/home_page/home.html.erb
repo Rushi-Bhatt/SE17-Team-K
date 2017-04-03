@@ -8,13 +8,27 @@
     </div>
     <div>
       <div id="forum" class="tabcontent">
-        <p style="margin-top: 10%"> Forum does this and that</p>
+        <p style="margin-top: 4%;font-weight: bold;font-size: 15px"> If you have want to discuss any dilemmas before selecting a course, the Forum
+
+          will help you enter a channel of a specific course and post the questions. The
+
+          users of the channel will be the students who had studied the course in previous
+
+          semesters. They can give reply to your post, the like and dislike feature on their replies
+
+          can help you make a decision.</p>
         <div class="button">
           <%= link_to "Forum", show_course_path, class: "btn btn-lg btn-primary" %>
         </div>
       </div>
       <div id="course_eval" class="tabcontent">
-        <p style="margin-top: 10%"> course Eval does this and that</p>
+        <p style="margin-top: 4%;font-weight: bold;font-size: 15px"> In this approach, you can get a feedback for a particular course you would
+
+          like to enroll in. The feedback is an average result of answers to frequently asked
+
+          questions before selecting a course. The feedback answers are provided by the students
+
+          who have already completed the course.</p>
         <div style="display: inline-flex; margin-top: 18%;margin-left: 52%">
           <div id="giveFeedback">
             <%= link_to "Give Feedback", course_eval_givefeedback_path, class: "btn btn-lg btn-primary" %>
@@ -25,7 +39,11 @@
         </div>
       </div>
       <div id="suggestion" class="tabcontent">
-        <p style="margin-top: 10%"> Suggestions does this and that</p>
+        <p style="margin-top: 4%;font-weight: bold;font-size: 15px"> This approach will suggest you courses, as per the choices you select in the
+
+          filters search. The filter search includes choices as your specific expectation from course
+
+          like languages/ tools used, number of projects included. etc</p>
         <div class="button">
           <%= link_to "Suggestion", suggestion_path, class: "btn btn-lg btn-primary" %>
         </div>

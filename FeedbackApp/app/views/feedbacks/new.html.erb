@@ -52,7 +52,7 @@
         </div>
 
         <%=label_tag(:tool_and_lang,"8) Which Tools/Languages did you use?")%></br>
-        <%= select_tag :tool_and_lang, options_for_select([ "C", "C++","Java","Python","Scala","Other" ], "C"), multiple: true%>
+        <%= select_tag :tool_and_lang, options_for_select([ "C", "C++","Java","Python","Ruby","Scala","Javascript","HTML","Other" ], "C"), multiple: true%>
 
         <%=label_tag(:category,"9) How do you categorize this course?")%></br>
         <%= select_tag :category, options_for_select([[ "System","1"], ["Design","2"],["Networks","3"],["Software engineering","4"],["Data Science","5"],["Other","0"]], "C")%>

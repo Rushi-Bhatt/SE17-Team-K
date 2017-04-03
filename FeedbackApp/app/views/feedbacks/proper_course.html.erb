@@ -1,9 +1,29 @@
 <% provide(:title, "show_suggestion") %>
-<div class="row">
-  <% @fb.each do |f| %>
-      <%= f.course_number %>
-      <br />
-        <br />
-      <% end %>
+<div class="row" style="height: 452px;">
+  <table align="center" class="table table-striped">
+   <tr>
+     <th>Course Number</th>
+     <th>Title</th>
+     <th>Level</th>
+     <th>Department</th>
+   </tr>
+    <% @suggested_courses.each do |f| %>
+        <tr>
+          <td>
+            <%= f["course_number"] %>
+          </td>
+          <td>
+            <%= f["title"] %>
+          </td>
+          <td>
+            <%= f["level"] %>
+          </td>
+          <td>
+            <%= f["department"] %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+
     <%=link_to "Return", root_path%>
 </div>
