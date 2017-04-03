@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20170401032756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "adminpack"
 
   create_table "courses", force: :cascade do |t|
     t.string   "course_number"
@@ -35,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170401032756) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "course_number"
+    t.string  "course_number"
     t.integer  "professor_id"
     t.integer  "user_id"
     t.integer  "num_of_exam"
